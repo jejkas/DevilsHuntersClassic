@@ -129,7 +129,7 @@ function DevilsHunters_OnEvent(self, event, arg1, arg2, arg3, arg4, arg5, arg6, 
 		then
 			print(destName, string.find(destName, "gre"));
 		end
-		if subevent == "UNIT_DIED" and string.find(destName, "gre") ~= nil
+		if subevent == "UNIT_DIED" and string.find(destName, "evilsaur") ~= nil
 		then
 			print("We are here!");
 			if SlashCmdList.BIGWIGSLOCALBAR ~= nil
