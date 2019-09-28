@@ -127,7 +127,7 @@ function DevilsHunters_OnEvent(self, event, arg1, arg2, arg3, arg4, arg5, arg6, 
 		local timestamp, subevent, _, sourceGUID, sourceName, sourceFlags, sourceRaidFlags, destGUID, destName, destFlags, destRaidFlags = CombatLogGetCurrentEventInfo()
 		if subevent == "UNIT_DIED"
 		then
-			print(destName, string.find(destName, "gre"));
+			--print(destName, string.find(destName, "gre"));
 		end
 		if subevent == "UNIT_DIED" and string.find(destName, "evilsaur") ~= nil
 		then
