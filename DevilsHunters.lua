@@ -131,11 +131,11 @@ function DevilsHunters_OnEvent(self, event, arg1, arg2, arg3, arg4, arg5, arg6, 
 		end
 		if subevent == "UNIT_DIED" and string.find(destName, "evilsaur") ~= nil
 		then
-			print("We are here!");
+			--print("We are here!");
 			if SlashCmdList.BIGWIGSLOCALBAR ~= nil
 			then
-				SlashCmdList.BIGWIGSLOCALBAR(DevilsHunters_respawnDuration .. DevilsHunters_GetClosest());
-				SlashCmdList.BIGWIGSRAIDBAR(DevilsHunters_respawnDuration .. DevilsHunters_GetClosest());
+				SlashCmdList.BIGWIGSLOCALBAR(DevilsHunters_respawnDuration .. " " .. DevilsHunters_GetClosest());
+				SlashCmdList.BIGWIGSRAIDBAR(DevilsHunters_respawnDuration .. " " .. DevilsHunters_GetClosest());
 			end
 		end
 	end
