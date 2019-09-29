@@ -58,7 +58,10 @@ end
 -- /script DevilsHunters_UpdateString();
 function DevilsHunters_UpdateString()
 	local px, py = DevilsHunters_GetPosition();
-	DevilsHunters_Frame_Font:SetText(DevilsHunters_GetClosest());
+	if DevilsHunters_Frame_Font
+	then
+		DevilsHunters_Frame_Font:SetText(DevilsHunters_GetClosest());
+	end
 end;
 
 function math.dist(x1,y1, x2,y2) return ((x2-x1)^2+(y2-y1)^2)^0.5 end
@@ -251,8 +254,8 @@ function DevilsHunters_UI_MoveFrameStop(arg1, frame)
 	end
 end;
 
-DevilsHunters_Frame = "";
-DevilsHunters_Frame_Font = "";
+DevilsHunters_Frame = nil;
+DevilsHunters_Frame_Font = nil;
 
 function DevilsHunters_MakeFrame()
 	local f = DevilsHunters_Frame;
