@@ -39,10 +39,15 @@ end
 
 function DevilsHunters_GetPosition()
 	local map = C_Map.GetBestMapForUnit("player");
-	local position = C_Map.GetPlayerMapPosition(map, "player");
+	if map
+	then
+		local position = C_Map.GetPlayerMapPosition(map, "player");
 	
-	local px, py = position:GetXY();
-	return px, py;
+		local px, py = position:GetXY();
+		return px, py;
+	else
+		return 0, 0;
+	end
 end
 
 function DevilsHunters_PrintDistance() -- /script DevilsHunters_PrintDistance();
