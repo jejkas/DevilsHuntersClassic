@@ -3,5 +3,5 @@
 ## Notes: DevilsHuntersClassic
 ## Author: rexas - rexas.tv
 ## Version: 1.0
-## SavedVariablesPerCharacter: DevilsHunters_Settings
+## SavedVariablesPerCharacter: DevilsHuntersClassic_Settings
 DevilsHuntersClassic.lua

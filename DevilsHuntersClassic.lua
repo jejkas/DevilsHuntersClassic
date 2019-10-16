@@ -84,14 +84,14 @@ SlashCmdList["DevilsHunters"] = function(args)
 		if DevilsHunters_Frame:IsMovable()
 		then
 			DevilsHunters_("Frame locked");
-			DevilsHunters_Settings["frameLocked"] = true;
+			DevilsHuntersClassic_Settings["frameLocked"] = true;
 			DevilsHunters_Frame.texture:SetVertexColor(0,0,0,0)
 			DevilsHunters_Frame:SetMovable(false);
 			DevilsHunters_Frame:EnableMouse(false);
 			DevilsHunters_Frame:SetResizable(false);
 		else
 			DevilsHunters_("Frame unlocked");
-			DevilsHunters_Settings["frameLocked"] = false;
+			DevilsHuntersClassic_Settings["frameLocked"] = false;
 			DevilsHunters_Frame.texture:SetVertexColor(0,0,0,0.4)
 			DevilsHunters_Frame:SetMovable(true);
 			DevilsHunters_Frame:EnableMouse(true);
@@ -101,10 +101,10 @@ SlashCmdList["DevilsHunters"] = function(args)
 	then
 		if DevilsHunters_Frame:IsVisible()
 		then
-			DevilsHunters_Settings["frameShown"] = false;
+			DevilsHuntersClassic_Settings["frameShown"] = false;
 			DevilsHunters_Frame:Hide();
 		else
-			DevilsHunters_Settings["frameShown"] = true;
+			DevilsHuntersClassic_Settings["frameShown"] = true;
 			DevilsHunters_Frame:Show();
 		end;
 	end
@@ -118,14 +118,14 @@ function DevilsHunters_OnEvent(self, event, arg1, arg2, arg3, arg4, arg5, arg6, 
 	--print(self, event, ...);
 	if event == "ADDON_LOADED" and arg1 == "DevilsHunters"
 	then
-		if not DevilsHunters_Settings
+		if not DevilsHuntersClassic_Settings
 		then
-			DevilsHunters_Settings = {}
-			DevilsHunters_Settings["frameLocked"] = false;
-			DevilsHunters_Settings["frameShown"] = false;
- 			DevilsHunters_Settings["frameRelativePos"] = "TOPLEFT";
-			DevilsHunters_Settings["frameXPos"] = 0;
-			DevilsHunters_Settings["frameYPos"] = 0;
+			DevilsHuntersClassic_Settings = {}
+			DevilsHuntersClassic_Settings["frameLocked"] = false;
+			DevilsHuntersClassic_Settings["frameShown"] = false;
+ 			DevilsHuntersClassic_Settings["frameRelativePos"] = "TOPLEFT";
+			DevilsHuntersClassic_Settings["frameXPos"] = 0;
+			DevilsHuntersClassic_Settings["frameYPos"] = 0;
 		end
 		DevilsHunters_MakeFrame();
 	end
@@ -251,9 +251,9 @@ function DevilsHunters_UI_MoveFrameStop(arg1, frame)
 	if frame.isMoving
 	then
 		local point, relativeTo, relativePoint, xOfs, yOfs = frame:GetPoint()
-		DevilsHunters_Settings["frameRelativePos"] = relativePoint;
-		DevilsHunters_Settings["frameXPos"] = xOfs;
-		DevilsHunters_Settings["frameYPos"] = yOfs;
+		DevilsHuntersClassic_Settings["frameRelativePos"] = relativePoint;
+		DevilsHuntersClassic_Settings["frameXPos"] = xOfs;
+		DevilsHuntersClassic_Settings["frameYPos"] = yOfs;
 		frame:StopMovingOrSizing();
 		frame.isMoving = false;
 	end
@@ -268,19 +268,19 @@ function DevilsHunters_MakeFrame()
 	f.texture:SetTexture("Interface\\Tooltips\\UI-Tooltip-Background");
 	f:SetWidth(500)
 	f:SetHeight(30)
-	f:SetPoint(DevilsHunters_Settings["frameRelativePos"], DevilsHunters_Settings["frameXPos"], DevilsHunters_Settings["frameYPos"])
+	f:SetPoint(DevilsHuntersClassic_Settings["frameRelativePos"], DevilsHuntersClassic_Settings["frameXPos"], DevilsHuntersClassic_Settings["frameYPos"])
 	f:SetFrameStrata("MEDIUM")
 	
-	if DevilsHunters_Settings["frameLocked"]
+	if DevilsHuntersClassic_Settings["frameLocked"]
 	then
 		f.texture:SetVertexColor(0,0,0,0)
 	else
 		f.texture:SetVertexColor(0,0,0,0.4)
 	end
 	
-	f:SetMovable(not DevilsHunters_Settings["frameLocked"]);
-	f:EnableMouse(not DevilsHunters_Settings["frameLocked"]);
-	f:SetResizable(not DevilsHunters_Settings["frameLocked"]);
+	f:SetMovable(not DevilsHuntersClassic_Settings["frameLocked"]);
+	f:EnableMouse(not DevilsHuntersClassic_Settings["frameLocked"]);
+	f:SetResizable(not DevilsHuntersClassic_Settings["frameLocked"]);
 	f.texture:SetAllPoints(f)
 
 	f:SetScript("OnMouseDown", function() DevilsHunters_UI_MoveFrameStart(arg1, this); end)
@@ -293,7 +293,7 @@ function DevilsHunters_MakeFrame()
 	DevilsHunters_Frame_Font:SetHeight(30);
 	DevilsHunters_Frame_Font:SetText("BACON");
 	DevilsHunters_Frame:Hide();
-	if DevilsHunters_Settings["frameShown"]
+	if DevilsHuntersClassic_Settings["frameShown"]
 	then
 		DevilsHunters_Frame:Show();
 	end;
